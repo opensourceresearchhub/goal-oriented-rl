@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+
+    \usepackage{amsmath}
+    \usepackage{array}
+    \usepackage{physics}
+   \usepackage{tocstyle}
+   \newcommand{\autodot}{.}
+    \usepackage{verbatim}
+    \usepackage{gensymb}
+    \usepackage{graphicx}
+    \usepackage{enumitem}
+    \usepackage{amsfonts}
+    \usepackage{amsthm}
+    \usepackage{amssymb}
+    \usepackage{tocloft}
+    \usepackage{float}
+    \usepackage{longtable}
+    \usepackage[acronym]{glossaries}
+		\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    \usepackage[total={6in,8.75in}, left=1.5in, right=1in, top=1in, bottom=1.25in, includefoot]{geometry}
+    \usepackage{sectsty}
+    \usepackage{titlesec}
+    \usepackage[all]{xy}
+    \usepackage[dvips]{epsfig}
+    \usepackage{url}
+    \usepackage{hyperref}
+    \usepackage{manfnt}
+\usepackage{multicol,amssymb,amsmath,amsbsy,amsthm,graphicx,esvect,comment,caption,epsfig,epstopdf}
+\usepackage{natbib}
+
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\makeatletter
+\renewcommand{\@ptsize}{0}
+\makeatother
+\usepackage{setspace}
+\doublespacing
+%%%%%%%%%%%%Sets paragraph indentation
+\setlength{\parindent}{5ex}
+%%%%%%%%%%%%Centers the sections/subsections
+\sectionfont{\centering}
+\subsectionfont{\centering}
+%%%%%%%%%%%%Places page numbers 0.5in from the bottom of the page
+\setlength{\footskip}{1.15in}
+%%%%%%%%%%%%Changes style of section headers
+\cftsetindents{section}{0pt}{3.2cm}
+\renewcommand{\thesection}{CHAPTER \Roman{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\titleformat{\section}[block]{\bfseries\filcenter}{\hspace{.3cm}\thesection\\\indent}{1em}{}[]
+\titleformat{\subsection}[block]{\bfseries\filcenter\underline}{\thesubsection}{1em}{\underline}[]
+%%%%%%%%%%%%Rename Section Titles
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+%\defbibheading{bibliography}{\centering REFERENCES}
+%%%%%%%%%%%%Makes LaTex avoid widows and orphans
+\widowpenalty=300
+\clubpenalty=300
+
+
+%THEOREM DECLARATION
+    \newcounter{theorem}[section]
+		\renewcommand{\thetheorem}{\arabic{section}}
+    \newtheorem{equivalent}[theorem]{Theorem}
+    \newtheorem{freecat}[theorem]{Theorem}
+    \newtheorem{qcat}[theorem]{Theorem}
+    \newtheorem{freefro}[theorem]{Theorem}
+    \newtheorem{isotang}[theorem]{Theorem}
+    \newtheorem{isothrdtang}[theorem]{Theorem}
+    \newtheorem{thm}{Theorem}[theorem]
+    \newtheorem{cor}[thm]{Corollary}
+    \newtheorem{lem}[thm]{Lemma}
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{exa}[thm]{Example}
+    \theoremstyle{definition}
+    \newtheorem{defn}[thm]{Definition}
+    \theoremstyle{remark}
+    \newtheorem{rem}[thm]{Remark}\numberwithin{equation}{section}
+
+    \theoremstyle{definition}
+    \newtheorem{THM}{{\!}}[section]
+    \newtheorem{THMX}{{\!}}
+    \renewcommand{\theTHMX}{}
+
+    \renewcommand{\qed}{\mancube}
+    \renewcommand\thefootnote{\fnsymbol{footnote}}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+%commands
+\newcommand{\In}{\mathbb{Z}}
+\newcommand{\pIn}{\mathbb{Z}^{+}}
+\newcommand{\less}{\backslash}
+\newcommand{\der}{\;\mathrm{d}}
+\newcommand{\supp}{\mathrm{supp}\;}
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand{\cftfigaftersnum}{.} 
+
+\title{Goal-Oriented Reinforcement Learning : Mapping Current State And The Desired State To Actions}
+\author{Rafi Qumsieh}
+
+
+\usepackage[acronym]{glossaries}
+
+% abbreviations:
+\newacronym{ny}{NY}{New York}
+\newacronym{la}{LA}{Los Angeles}
+\newacronym{un}{UN}{United Nations}
+
+
+
+
+\begin{document}
+
+%Signature page 
+\thispagestyle{empty} %leaves this page unnumbered
+\begin{singlespace}
+\end{singlespace}
+	\begin{center}
+	
+		GOAL-ORIENTED REINFORCEMENT LEARNING : MAPPING CURRENT STATE AND THE DESIRED STATE TO ACTIONS \vspace*{-0.1cm}\\ $\;$ \\
+		BY  \vspace*{-0.1cm}\\ $\;$ \\
+		Rafi Qumsieh\vspace*{-0.2cm} \\ $\;$  \\
+		LogiX Research\vspace*{-0.2cm} \\ $\;$ \\
+		rafi@logix.technology\vspace*{-0.2cm} \\ $\;$ \\
+		January 2021 \vspace*{-0.1cm}\\ $\;$  \\ 
+	\end{center}\vspace*{-0.3cm}
+	\begin{tabular}{ p{3in} p{3in}}
+	\end{tabular}\\ \vspace*{-0.1cm}$\;$  \\ 
+
+
+
+
+%TABLE OF CONTENTS
+%\setlength{\cftbeforetoctitleskip}{0.75in}
+\addtocontents{toc}{\protect\hfill{}\bfseries Page\par}
+\renewcommand{\contentsname}{\bfseries\normalsize TABLE OF CONTENTS\hfill}
+%\renewcommand{\cfttocfont}{.}
+\setlength{\cftaftertoctitleskip}{1cm}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+%ABSTRACT PAGE
+\newpage
+\vspace*{1cm}
+\section*{ABSTRACT} \vspace*{0.5cm}
+\addcontentsline{toc}{section}{ABSTRACT}
+
+In this paper, we introduce a new type of models for reinforcement learning that focus on an end goal or a desired state rather than actions that maximize the Q value.
+
+
+\newpage
+\vspace*{1cm}
+\section*{PREFACE} \vspace*{0.5cm}
+This paper is under development
+
+
+
+\newpage
+\vspace*{1cm}
+\section*{INTRODUCTION} \vspace*{0.5cm}
+
+
+
+\newpage
+\vspace*{1cm}
+\section*{POSSIBLE APPLICATIONS} \vspace*{0.5cm}
+
+
+
+\newpage
+\vspace*{1cm}
+\section*{CONCLUSION AND DISCUSSION} \vspace*{0.5cm}
+
+
+
+\end{document} 
